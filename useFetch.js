@@ -1,3 +1,12 @@
+/*
+    How to use in component
+    
+    const [data, isPending, error] = useFetch(
+        'https://your-api-endpoit', 
+        {"method": "GET", "headers": "api-header"} => OPTIONAL
+        )
+*/
+
 import { useEffect, useState } from 'react';
 
 const useFetch = (url, header) => {
