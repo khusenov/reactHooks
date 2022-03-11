@@ -9,14 +9,14 @@
 
 import { useEffect, useState } from 'react';
 
-const useFetch = (url, header) => {
+const useFetch = (url, action) => {
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(false);
 
     useEffect(async () => {
         try {
-            const res = await fetch(url, header);
+            const res = await fetch(url, action);
             if (!res.ok) {
                 throw new Error(`Couldn't fetch data`);
             }
@@ -27,7 +27,7 @@ const useFetch = (url, header) => {
         }
 
         setIsPending(false);
-    }, [url]);
+    }, [url, action]);
     return { data, isPending, error };
 };
 
