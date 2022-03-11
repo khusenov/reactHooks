@@ -15,6 +15,7 @@ const useFetch = (url, action) => {
     const [error, setError] = useState(false);
 
     useEffect(async () => {
+        setIsPending(true);
         try {
             const res = await fetch(url, action);
             if (!res.ok) {
